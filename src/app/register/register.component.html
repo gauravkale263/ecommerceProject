@@ -1,0 +1,22 @@
+<app-navbar></app-navbar>
+
+<form [formGroup]="registerUser" (ngSubmit)="registerNow()">
+    <div class="container-fluid mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="p-4 border shadow-lg">
+                    <h5>New User,</h5>
+                    <h1>Register Here</h1>
+                    <br>
+                    <input type="text" formControlName="user_name" placeholder="Enter your Name" class="form-control" style="border-radius: 0px;"><br><br>
+                    <input type="number" formControlName="user_mobile" placeholder="Enter your Mobile" class="form-control" style="border-radius: 0px;"><br><br>
+                    <input type="email" formControlName="user_email" placeholder="Enter your email" class="form-control" style="border-radius: 0px;"><br><br>
+                    <input type="password" formControlName="user_password" placeholder="Enter your Password" class="form-control" style="border-radius: 0px;"><br><br>
+                    <button class="btn btn-dark  " style="border-radius: 0px;">Register Now</button>
+                </div>
+            </div>
+        </div>  
+    </div>
+</form>
+
+<app-footer></app-footer>

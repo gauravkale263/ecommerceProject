@@ -1,0 +1,6 @@
+@media print {
+    .remove_btn
+    {
+        display: none;
+    }
+}

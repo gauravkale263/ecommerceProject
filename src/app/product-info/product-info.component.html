@@ -1,0 +1,18 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5 " *ngIf="prod_info">
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <img [src]="prod_info.product_img" width="100%">
+        </div>
+        <div class="col-md-6">
+            <h5>{{prod_info.cat_name}}</h5>
+            <h1>{{prod_info.product_name}}</h1>
+            <h1>{{prod_info.price|currency:"INR"}}</h1>
+            <button *ngIf="prod_info.cart=='No'" class="btn btn-dark" (click)="addProduct()">Add To Cart</button>
+            <h5 class="text-danger" *ngIf="prod_info.cart=='Yes'">Added in cart</h5>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

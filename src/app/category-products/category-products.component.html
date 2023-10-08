@@ -1,0 +1,25 @@
+<app-navbar></app-navbar>
+
+
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center">{{name}}</h1>
+        </div>
+        <ng-container *ngFor="let row of products;let i=index">
+            <div class="col-md-3"  routerLink="/cat-info/{{row.product_tbl_id}}">
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <div style="max-height: 280px;overflow: hidden;">
+                            <img [src]="row.product_img" width="100%" alt="">
+                        </div>
+                        <h6>{{row.product_name}}</h6>
+                        <h3>&#8377; {{row.price}} /-</h3>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+  </div>
+
+<app-footer></app-footer>

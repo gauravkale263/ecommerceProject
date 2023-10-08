@@ -1,0 +1,40 @@
+
+<div class="container-fluid" style="background-image: linear-gradient(45deg ,black 20%,white 20%);">
+    <div class="row">
+        <div class="col-md-6 pt-2 pb-2" style="height: 60px;cursor: pointer;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrLfQA_GCvMHhhOAbxY8DEDpHDGjVTWwowAhyDXvVJ&s" style="height:100%">
+        </div>
+        <div class="col-md-6 text-right" style="line-height: 60px;" *ngIf="!token">
+            <button class="btn btn-dark  mr-3" routerLink="/register">Register</button>
+            <button class="btn btn-dark" routerLink="/login">Login</button>
+        </div>
+        <div class="col-md-6 text-right" style="line-height: 60px;" *ngIf="token">
+          <button class="btn btn-dark mr-3 remove_btn" (click)="logOutUser()">Logout</button>
+          <button class="btn btn-dark remove_btn" >My Account</button>
+          <button class="btn btn-dark remove_btn mr-3 ml-3" routerLink="/myorder">My Order</button>
+      </div>
+    </div>
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+ 
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item " style="cursor: pointer;" *ngFor="let row of catlist">
+        <a class="nav-link " routerLink="/cat-products/{{row.cat_id}}/{{row.cat_name}}/">{{row.cat_name}}</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">   
+      <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+     -->
+     <button class="btn btn-dark" routerLink="/cart">Cart</button>
+    </form>
+  </div>
+</nav>

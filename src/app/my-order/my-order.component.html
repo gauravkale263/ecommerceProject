@@ -1,0 +1,27 @@
+<app-navbar></app-navbar>
+
+<div class="container w-50">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="text-center mt-5">My Orders</h2>
+                    </div>
+                </div>
+                <div class="row mb-3 mt-3 border-bottom" *ngFor="let row of orders">
+                    <div class="col-md-8 ">
+                        <h6>{{row.entry_date | date}}</h6>
+                        <h5 style="font-weight: 100;">{{row.area}},{{row.city}},{{row.district}},{{row.state}},
+                        {{row.country}} - {{row.pincode}}</h5>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>{{row.ttl_amount | currency:"INR"}}</h4>
+                        <a routerLink="/order-det/{{row.product_order_id}}">View Order Details</a>
+                    </div>    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

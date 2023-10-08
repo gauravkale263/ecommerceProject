@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+    <div class="row mt-5" *ngFor="let row of cart_products">
+        <div class="col-3 col-md-2 mb-3" >
+            <img [src]="row.product_img" width="100%">
+        </div>
+        <div class="col-6 col-md-6">
+            <h6>{{row.product_name}}</h6>
+            <h4>{{row.price|currency:'INR'}}</h4>
+            <div>
+                <button class="btn btn-dark mr-2"  (click)="decQty(row.product_econ_cart_id)">-</button>
+                <input type="text" [value]="row.qty" disabled class="form-control w-25 text-center d-inline-block">
+                <button class="btn btn-dark ml-2" (click)="incQty(row.product_econ_cart_id)">+</button>
+            </div>
+            <div class="mt-2">
+                <button class="btn btn-danger btn-sm" (click)="removeProd(row.product_econ_cart_id)">Remove Item</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h1 class="">{{total | currency:'INR'}}</h1>
+            <button class="btn btn-dark" routerLink="/placeorder">Confirm & Place Order</button>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

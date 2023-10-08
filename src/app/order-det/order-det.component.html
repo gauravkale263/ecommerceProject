@@ -1,0 +1,56 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5" *ngIf="order_info">
+    <div class="row" style="font-weight: 100;">
+        <div class="col-md-12">
+            <h2 style="font-weight: 100;">Order Details</h2>
+            <h5 style="font-weight: 100;">Order Number {{order_info.product_order_id}}</h5>
+            <h5 style="font-weight: 100;">Order Date - {{order_info.entry_date | date}}</h5>
+        </div>
+        <div class="col-md-12 mt-5">
+            <h2 style="font-weight: 100;border-bottom: 1px solid gray;padding-bottom: 15px;">Billing Info</h2>
+        </div>
+        <div class="col-md-12">
+            <h6 style="font-weight: 100;">Ship To -</h6>
+        </div>
+        <div class="col-md-6">
+            <h5>{{order_info.area}},</h5>
+            <h5>{{order_info.city}},</h5>
+            <h5>{{order_info.district}},</h5>
+            <h5>{{order_info.state}},</h5>
+            <h5>{{order_info.country}} - {{order_info.pincode}}</h5>
+        </div>
+        <div class="col-md-6">
+            Payment mode
+            <h5 style="font-weight:10;">
+                {{order_info.payment_type}}
+            </h5>
+        </div>
+        <div class="col-md-12 mt-5">
+            <h2 style="font-weight:100">Products</h2>
+            <table class="table">
+                <tr>
+                    <th></th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                </tr>
+                <tr *ngFor="let row of order_product">
+                    <td style="width:80px"><img [src]="row.product_img" width="100%"></td>
+                    <td>{{row.product_name}}</td>
+                    <td>{{row.price | currency:"INR"}}</td>
+                    <td class="">{{row.qty}}</td>
+                    <td>{{row.qty * row.price | currency:"INR"}}</td>
+                </tr>
+                <tr>
+                    <th colspan="4">Total</th>
+                    <th>{{order_info.ttl_amount | currency:"INR"}}</th>
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</div>
+
+<app-footer></app-footer>
